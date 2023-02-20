@@ -2,18 +2,18 @@
 {
 
     [Flags]
-    public enum GenreEnum
+    enum GenreEnum
     {
         Unrated = 0,
         Action = 1,
         Comedy = 2,
-        Horror = 4,
-        Fantasy = 16,
-        Musical = 32,
-        Mystery = 64,
-        Romance = 128,
-        Adventure = 256,
-        Animation = 512,
-        Documentary = 1024
+        Horror = 3,
+        Fantasy = 4,
+        Musical = 5,
+        Mystery = 6,
+        Romance = 7,
+        Adventure = 8,
+        Animation = 9,
+        Documentary = 10,
     }
 }

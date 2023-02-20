@@ -23,5 +23,5 @@ class Show
     // ToString() METHOD
     // Mon 11:35 Terminator 2: Judgement Day(1991) 105min (Action, Horror) Arnold Schwarzenegger, Linda Hamilton $5.95
     public override string ToString()
-        =>  $"{Day} {Time} {Movie} {Price:C2}";
+        =>  $"{Day} {Time}min {Movie} {Price:C2}";
 }
