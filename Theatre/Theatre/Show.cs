@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Theatre_Assignment;
 
-class Show : Movie
+class Show
 {
     // FIELDS : No-Fields
 
@@ -17,16 +17,10 @@ class Show : Movie
     public Time Time { get; private set; }
 
     // CONSTRUCTOR
-    public Show(Movie movie, MovieDay day, double price, Time time)
-        => (Movie, Day, Price, Time) = (movie, day, price, time);
+    public Show(Movie movie, Time time, MovieDay day, double price)
+        => (Movie, Time, Day, Price) = (movie, time, day, price);
 
     // ToString() METHOD
     public override string ToString()
-    {
-        return string.Format(Movie +
-                            "\n- Day   : " + Day +
-                            "\n- Price : $" + Price +
-                            "\n- Time  : " + Time);
-        //return string.Format("{0} {1} {2} {3}", Movie, Day, Price, Time);
-    }
+        =>  $"{Movie}\n- Day   : {Day}\n- Price : ${Price}\n- Time  : {Time}";
 }

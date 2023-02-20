@@ -21,7 +21,7 @@ namespace Theatre_Assignment
         }
         public override string ToString()
         {
-            return $"{Hours:F2}:{Minutes:F2} ";
+            return $"{Hours:D2}h:{Minutes:D2}m ";
         }
     }
 }

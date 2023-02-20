@@ -3,13 +3,15 @@
     class Program {
         static void Main(string[] args)
         {
-            Movie movie = new Movie("Terminator 2: Judgement Day", 1991, 105);
-            movie.AddActor("Arnold Schwarzenegger");
-            movie.SetGenre(GenreEnum.Horror | GenreEnum.Action);
-            movie.AddActor("Linda Hamilton");
+            Movie movie1 = new Movie("Terminator 2: Judgement Day", 1991, 105);
+            movie1.AddActor("Arnold Schwarzenegger");
+            movie1.SetGenre(GenreEnum.Horror | GenreEnum.Action);
+            movie1.AddActor("Linda Hamilton");
 
-            Show s1 = new Show(terminator, new Time(11, 35), DayEnum.Mon, 5.95);
-            Console.WriteLine(s1);
+            Show show1 = new Show(movie1, new Time(11, 35), MovieDay.Mon, 5.95);
+            Console.WriteLine(show1);
+
+            Console.WriteLine(show1);
 
         }
     }
