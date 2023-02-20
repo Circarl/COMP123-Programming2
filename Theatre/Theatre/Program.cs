@@ -10,9 +10,13 @@
 
             Show show1 = new Show(movie1, new Time(11, 35), MovieDay.Mon, 5.95);
             Console.WriteLine(show1);
-
+            Console.WriteLine();
             Console.WriteLine(show1);
 
+            Console.WriteLine("\n~ List of Movies in Eglinton Theater ~\n");
+            Theatre eglinton = new Theatre("Cineplex");
+            eglinton.AddShow(show1);
+            eglinton.PrintShows();
         }
     }
 }

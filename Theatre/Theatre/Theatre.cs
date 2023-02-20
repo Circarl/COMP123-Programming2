@@ -13,11 +13,8 @@ namespace Theatre_Assignment
         public string Name { get; private set; }
 
         // COSTRUCTOR
-        public Theatre(string name)
-        {
-            this.Name = name;
-            this.Shows = new List<Show>();
-        }
+        public Theatre(string name) => (Name, Shows) = (name, new List<Show>());
+
 
         // METHODS
         public void AddShow(Show show)
@@ -27,9 +24,9 @@ namespace Theatre_Assignment
 
         public void PrintShows()
         {
-            foreach (Show s in Shows)
+            foreach (Show shows in Shows)
             {
-                Console.WriteLine(s + "\n");
+                Console.WriteLine(shows + "\n");
             }
         }
 
