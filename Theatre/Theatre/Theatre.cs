@@ -15,7 +15,6 @@ namespace Theatre_Assignment
         // COSTRUCTOR
         public Theatre(string name) => (Name, Shows) = (name, new List<Show>());
 
-
         // METHODS
         public void AddShow(Show show)
         {
@@ -24,9 +23,10 @@ namespace Theatre_Assignment
 
         public void PrintShows()
         {
+            Console.WriteLine("\nCineplex\nAll shows\n=========");
             foreach (Show shows in Shows)
             {
-                Console.WriteLine(shows + "\n");
+                Console.WriteLine(shows);
             }
         }
 
@@ -36,7 +36,7 @@ namespace Theatre_Assignment
             {
                 if (s.Movie.Genre == genre)
                 {
-                    Console.WriteLine(s + "\n");
+                    Console.WriteLine(s);
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace Theatre_Assignment
             {
                 if (s.Day == day)
                 {
-                    Console.WriteLine(s + "\n");
+                    Console.WriteLine(s);
                 }
             }
         }
@@ -58,20 +58,21 @@ namespace Theatre_Assignment
             {
                 if (s.Time.Hours == time.Hours)
                 {
-                    Console.WriteLine(s + "\n");
+                    Console.WriteLine(s);
                 }
             }
         }
 
         public void PrintShows(string actor)
         {
+            Console.WriteLine("\nCineplex\nAll shows\n=========");
             foreach (Show s in Shows)
             {
                 for (int i = 0; i < s.Movie.Cast.Count; i++)
                 {
                     if (s.Movie.Cast[i] == actor)
                     {
-                        Console.WriteLine(s + "\n");
+                        Console.WriteLine(s);
                     }
                 }
             }

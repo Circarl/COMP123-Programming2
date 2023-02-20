@@ -24,7 +24,8 @@ namespace Theatre_Assignment
         public void SetGenre(GenreEnum genre) => this.Genre = genre;
         public override string ToString()
         {
-            return $"~ {Title} ~\n- Length: {Length}\n- Genre : {Genre}\n- Cast  : {String.Join(", ", Cast)}";
+            // Format = Mon 11:35 Terminator 2: Judgement Day(1991) 105min (Action, Horror) Arnold Schwarzenegger, Linda Hamilton $5.95
+            return $"{Title}({Year}) {Length} ({Genre}) {String.Join(", ", Cast)}";
         }
 
     }
