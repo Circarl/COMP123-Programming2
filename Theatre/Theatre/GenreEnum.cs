@@ -5,15 +5,15 @@
     enum GenreEnum
     {
         Unrated = 0,
-        Action = 1,
-        Comedy = 2,
-        Horror = 3,
-        Fantasy = 4,
-        Musical = 5,
-        Mystery = 6,
-        Romance = 7,
-        Adventure = 8,
-        Animation = 9,
-        Documentary = 10,
+        Romance = 1,
+        Action = 2,
+        Horror = 4,
+        Fantasy = 8,
+        Musical = 16,
+        Mystery = 32,
+        Comedy = 64,
+        Adventure = 128,
+        Animation = 256,
+        Documentary = 512,
     }
 }
