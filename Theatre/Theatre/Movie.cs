@@ -25,8 +25,8 @@ namespace Theatre_Assignment
         public override string ToString()
         {
             // Format = Mon 11:35 Terminator 2: Judgement Day(1991) 105min (Action, Horror) Arnold Schwarzenegger, Linda Hamilton $5.95
-            string emptyFormat = "";
-            return $"{Title}({Year}) {Length} ({Genre}) \n{emptyFormat,-15}{String.Join(", ", Cast)}";
+            //string emptyFormat = "";
+            return $"{Title}({Year}) {Length} ({Genre}) {String.Join(", ", Cast)}";
         }
 
     }

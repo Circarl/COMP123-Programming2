@@ -1,27 +1,33 @@
 ﻿
 namespace Theatre_Assignment
 {
-    class Time
+    struct Time
     {
-        public int Hours { get; private set; }
-        public int Minutes { get; private set; }
-
-        public Time(int hours, int minutes)
-            => (Hours, Minutes) = (hours, minutes);
-        public static Boolean operator ==(Time lhs, Time rhs)
+        public int Hours { get; }
+        public int Minutes { get; }
+        public Time(int hours, int minutes = 0)
         {
-            if (lhs.Hours + rhs.Hours + lhs.Minutes + rhs.Minutes <= 15)
+            Hours = hours;
+            Minutes = minutes;
+        }
+        public override string ToString()
+        {
+            return $"{Hours:00}:{Minutes:00}";
+        }
+        public static bool operator ==(Time lhs, Time rhs)
+        {
+            int lhsHrs_Min = lhs.Hours * 60;
+            int rhsHrs_Min = rhs.Hours * 60;
+            int lhsTime = lhsHrs_Min + lhs.Minutes;
+            int rhsTime = rhsHrs_Min + rhs.Minutes;
+            if (Math.Abs(lhsTime - rhsTime) <= 15)
                 return true;
             else
                 return false;
         }
-        public static Boolean operator !=(Time lhs, Time rhs)
+        public static bool operator !=(Time lhs, Time rhs)
         {
-            return false;
-        }
-        public override string ToString()
-        {
-            return $"{Hours:D2}:{Minutes:D2} ";
+            return !(lhs == rhs);
         }
     }
 }

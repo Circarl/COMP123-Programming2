@@ -8,91 +8,90 @@ namespace Theatre_Assignment
 {
     class Theatre
     {
-        // PROPERTIES
-        public int COUNT = 1;
-        public List<Show> Shows { get; private set; }
-        public string Name { get; private set; }
-
-        // COSTRUCTOR
-        public Theatre(string name) => (Name, Shows) = (name, new List<Show>());
-
-        // METHODS
+        private List<Show> shows;
+        public string Name { get; }
+        public Theatre(string name)
+        {
+            Name = name;
+            shows = new List<Show>();
+        }
         public void AddShow(Show show)
         {
-            Shows.Add(show);
+            shows.Add(show);
         }
-
         public void PrintShows()
         {
-            Console.WriteLine("\nCineplex\nAll shows\n=========");
             int count = 1;
-            foreach (Show shows in Shows)
+            foreach (Show show in shows)
             {
-                Console.WriteLine($"{count,2}: {shows}");
+                Console.Write($"{count}: ");
                 count++;
+                Console.WriteLine(show);
             }
-        }
 
+        }
         public void PrintShows(GenreEnum genre)
         {
-            COUNT = 1;
-            foreach (Show s in Shows)
+            int count = 1;
+            foreach (Show show in shows)
             {
-                if (s.Movie.Genre == genre)
+                if (show.Movie.Genre.HasFlag(genre))
                 {
-                    Console.WriteLine($"{COUNT,2}: {s}");
-                    COUNT++;
+                    Console.Write($"{count}: ");
+                    count++;
+                    Console.WriteLine(show);
                 }
             }
         }
-
         public void PrintShows(MovieDay day)
         {
-            foreach (Show s in Shows)
+            int count = 1;
+            foreach (Show show in shows)
             {
-                if (s.Day == day)
+                if (show.Day == day)
                 {
-                    Console.WriteLine($"{COUNT,2}: {s}");
-                    COUNT++;
+                    Console.Write($"{count}: ");
+                    count++;
+                    Console.WriteLine(show);
                 }
             }
         }
-
         public void PrintShows(Time time)
         {
-            foreach (Show s in Shows)
+            int count = 1;
+            foreach (Show show in shows)
             {
-                if (s.Time.Hours == time.Hours)
+                if (show.Time == time)
                 {
-                    Console.WriteLine(s);
+                    Console.Write($"{count}: ");
+                    count++;
+                    Console.WriteLine(show);
+                }
+            }
+        }
+        public void PrintShows(String actor)
+        {
+            int count = 1;
+            foreach (Show show in shows)
+            {
+                if (show.Movie.Cast.Contains(actor))
+                {
+                    Console.Write($"{count}: ");
+                    count++;
+                    Console.WriteLine(show);
                 }
             }
         }
         public void PrintShows(MovieDay day, Time time)
         {
-            foreach (Show s in Shows)
-            {
-                if (s.Day == day || s.Time == time)
-                {
-                    Console.WriteLine(s);
-                }
-            }
-        }
-
-        public void PrintShows(string actor)
-        {
-            Console.WriteLine("\nCineplex\nAll shows\n=========");
             int count = 1;
-
-            foreach (Show s in Shows)
+            foreach (Show show in shows)
             {
-                for (int i = 0; i < s.Movie.Cast.Count; i++)
+                if (show.Day == day && show.Time == time)
                 {
-                    if (s.Movie.Cast[i] == actor)
-                    {
-                        Console.WriteLine($"{count,2}: {s}");
-                        count++;
-                    }
+                    Console.Write($"{count}: ");
+                    count++;
+                    Console.WriteLine(show);
                 }
             }
         }
