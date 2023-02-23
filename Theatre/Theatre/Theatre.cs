@@ -10,88 +10,75 @@ namespace Theatre_Assignment
     {
         private List<Show> shows;
         public string Name { get; }
-        public Theatre(string name)
-        {
-            Name = name;
-            shows = new List<Show>();
-        }
-        public void AddShow(Show show)
-        {
-            shows.Add(show);
-        }
+        public Theatre(string name) => (Name, shows) = (name, new List<Show>());
+        public void AddShow(Show show) => shows.Add(show);
+
         public void PrintShows()
         {
-            int count = 1;
-            foreach (Show show in shows)
+            int COUNT = 1;
+            foreach (Show s in shows)
             {
-                Console.Write($"{count}: ");
-                count++;
-                Console.WriteLine(show);
+                Console.WriteLine($"{COUNT,2}: {s}");
+                COUNT++;
             }
 
         }
         public void PrintShows(GenreEnum genre)
         {
-            int count = 1;
-            foreach (Show show in shows)
+            int COUNT = 1;
+            foreach (Show s in shows)
             {
-                if (show.Movie.Genre.HasFlag(genre))
+                if (s.Movie.Genre.HasFlag(genre))
                 {
-                    Console.Write($"{count}: ");
-                    count++;
-                    Console.WriteLine(show);
+                    Console.WriteLine($"{COUNT,2}: {s}");
+                    COUNT++;
                 }
             }
         }
         public void PrintShows(MovieDay day)
         {
-            int count = 1;
-            foreach (Show show in shows)
+            int COUNT = 1;
+            foreach (Show s in shows)
             {
-                if (show.Day == day)
+                if (s.Day == day)
                 {
-                    Console.Write($"{count}: ");
-                    count++;
-                    Console.WriteLine(show);
+                    Console.WriteLine($"{COUNT,2}: {s}");
+                    COUNT++;
                 }
             }
         }
         public void PrintShows(Time time)
         {
-            int count = 1;
-            foreach (Show show in shows)
+            int COUNT = 1;
+            foreach (Show s in shows)
             {
-                if (show.Time == time)
+                if (s.Time == time)
                 {
-                    Console.Write($"{count}: ");
-                    count++;
-                    Console.WriteLine(show);
-                }
+                    Console.WriteLine($"{COUNT,2}: {s}");
+                    COUNT++;               }
             }
         }
         public void PrintShows(String actor)
         {
-            int count = 1;
-            foreach (Show show in shows)
+            int COUNT = 1;
+            foreach (Show s in shows)
             {
-                if (show.Movie.Cast.Contains(actor))
+                if (s.Movie.Cast.Contains(actor))
                 {
-                    Console.Write($"{count}: ");
-                    count++;
-                    Console.WriteLine(show);
+                    Console.WriteLine($"{COUNT,2}: {s}");
+                    COUNT++;
                 }
             }
         }
         public void PrintShows(MovieDay day, Time time)
         {
-            int count = 1;
-            foreach (Show show in shows)
+            int COUNT = 1;
+            foreach (Show s in shows)
             {
-                if (show.Day == day && show.Time == time)
+                if (s.Day == day && s.Time == time)
                 {
-                    Console.Write($"{count}: ");
-                    count++;
-                    Console.WriteLine(show);
+                    Console.WriteLine($"{COUNT,2}: {s}");
+                    COUNT++;
                 }
             }
         }
