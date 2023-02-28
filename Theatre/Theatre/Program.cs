@@ -1,4 +1,7 @@
-﻿namespace Theatre_Assignment
+﻿//301242419 Carl Kevin Gasal
+//COMP123 Programming 2 - Theatre
+
+namespace Theatre_Assignment
 {
     class Program {
         static void Main(string[] args)
@@ -110,29 +113,29 @@
             eglinton.AddShow(new Show(godzilla, new Time(18, 25), MovieDay.Fri, 8.50));
             eglinton.AddShow(new Show(avengers, new Time(14, 15), MovieDay.Sun, 10.75));
 
-            Console.WriteLine("\n\nDisplay 27 objects: ");
+            Console.WriteLine("\nDisplays\n27 objects\n=========");
             eglinton.PrintShows();                                      //displays 27 objects
 
-            Console.WriteLine("\n\nDisplay 8 objects: Movie Day");
+            Console.WriteLine("\nDisplays Movie Day\n8 objects\n=========");
             eglinton.PrintShows(MovieDay.Sun);                           //displays 8 objects
 
-            Console.WriteLine("\n\nDisplay 19 objects: Action Movies");
+            Console.WriteLine("\nDisplays Action Genres\n19 objects\n=========");
             eglinton.PrintShows(GenreEnum.Action);                      //displays 19 objects
 
-            Console.WriteLine("\n\nDisplay 8 objects: Romance Movies");
+            Console.WriteLine("\nDisplays Romance Genres\n8 objects\n=========");
             eglinton.PrintShows(GenreEnum.Romance);                     //displays 8 objects
 
-            Console.WriteLine("\n\nDisplay 3 objects: Action & Romance");
+            Console.WriteLine("\nDisplays Action & Romance Genres\n3 objects\n=========");
             eglinton.PrintShows(GenreEnum.Action | GenreEnum.Romance);  //displays 3 objects
 
-            Console.WriteLine("\n\nDisplay 5 objects: \"Morgan Freeman\"");
+            Console.WriteLine("\nDisplays Cast: Morgan Freeman\n5 objects\n=========");
             eglinton.PrintShows("Morgan Freeman");                      //displays 5 objects
 
-            Console.WriteLine("\n\nDisplay 6 objects: Time: 14:05 ");
+            Console.WriteLine("\nDisplays Time\n6 objects\n=========");
             Time time = new Time(14, 05);
             eglinton.PrintShows(time);                                  //displays 6 objects
 
-            Console.WriteLine("\n\nDisplay 3 objects: Day: Sunday");
+            Console.WriteLine("\nDisplays Sunday & Time\n3 objects\n=========");
             eglinton.PrintShows(MovieDay.Sun, time);                     //displays 3 objects
 
         }
