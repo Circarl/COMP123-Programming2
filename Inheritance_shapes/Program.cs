@@ -79,7 +79,7 @@ namespace Week05
         public Figure2D(double length, double width)
         => (Length, Width) = (length, width);
 
-        public override string ToString() => $"[{Length},{Width}] area: {Area}";
+        public override string ToString() => $"[{Length},{Width}] area: {Area:F2}";
 
     }
 
@@ -106,7 +106,9 @@ namespace Week05
     {
         public override double Area { get => Length * Width; }//computed property
         public Rectangle(double length, double width) : base(length, width)
-        { }
+        { 
+        }
+        public override string ToString() => $"Rectangle: length {Length} {Area:F2}";
     }
 
     class Square : Figure2D
@@ -116,7 +118,6 @@ namespace Week05
         { }
 
         public override string ToString() => $"Square: length {Length} {Area:F2}";
-
     }
 
     #endregion
@@ -150,7 +151,7 @@ namespace Week05
         static void Main(string[] args)
         {
             TestMcDonalds();
-            //TestFigure2D();
+            TestFigure2D();
             //TestHidden();
         }
 
