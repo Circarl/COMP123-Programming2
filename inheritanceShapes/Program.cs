@@ -2,21 +2,20 @@
 const double PI = 3.14;
 
 abstract class Shape { 
-    string Name { get; private set; }
-    abstract double Area { get;  }
+    protected string Name { get; private set; }
+    protected abstract double Area { get;  }
 
-    public Shape (string name) { }
+    public Shape (string name)  { }
     public override string ToString()
      => $"{Name} - {Area}";
 }
 
 class Square : Shape
 {
-    public double Length { get; set; }
-    public double Area { get; }
-    public Square (string name, double length)
-     => (Name, Length) = (name, length);
-    public override
+    protected double Length { get; set; }
+    protected override double Area { get { return Length * 4; } }
+    public Square(string name, double length) : base(name)
+     => Length = length;
 }
 
 class Rectangle : Shape
@@ -36,23 +35,23 @@ class Rectangle : Shape
     public double Height { get; set; }
     public double Area { get; }
 
-    public Rectangle(string name, double height, double width)
-        => (Name, Height, Area) = (name, height, width);
+    public Rectangle(string name, double height, double width) : base(name)
+        => (Height, Area) = (height, width);
 
 
 }
 class Circle : Square
 {
     public double Area { get; }
-    public double Area
+    public override double Area
     {
         get
         {
             return PI * Length * Length;
         }
     }
-    public Circle(string name, double length)
-        => (Name, Length) = (name, length);
+    public Circle(string name, double length) : base(name)
+        => Length = length;
 }
 class Ellipse : Rectangle { }
 class Diamond : Rectangle { }
