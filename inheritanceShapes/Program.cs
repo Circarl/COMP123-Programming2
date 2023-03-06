@@ -1,10 +1,11 @@
 ﻿using System.Xml.Linq;
 
-abstract class Shape { 
+abstract class Shape
+{
     protected string Name { get; private set; }
-    protected abstract double Area { get;  }
+    protected abstract double Area { get; }
 
-    public Shape (string name)  { }
+    public Shape(string name) { }
     public override string ToString()
      => $"{Name} - {Area}";
 }
@@ -30,16 +31,23 @@ class Rectangle : Shape
     public Rectangle(string name, double height, double width) : base(name)
         => (Height, Width) = (height, width);
 }
-class Ellipse : Rectangle 
+class Ellipse : Rectangle
 {
-//    Properties
-//+ <<C# property get>>Area : double
+    //    Properties
+    //+ <<C# property get>>Area : double
 
-//Methods
-//+ <<constructor>> Ellipse(string name, double height, double width)
+    //Methods
+    //+ <<constructor>> Ellipse(string name, double height, double width)
     protected override double Area { get => Math.PI * Width * Height; }
-    public Ellipse(string name, double height, double width) : base(name) => (Height, Width) = (height, width);
+    public Ellipse(string name, double height, double width) : base(name)
+        => (Height, Width) = (height, width);
 
 }
-class Diamond : Rectangle { }
-class Triangle : Rectangle { }
+class Diamond : Rectangle 
+{
+    
+}
+class Triangle : Rectangle 
+{
+
+}
