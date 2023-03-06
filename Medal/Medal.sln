@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medal", "Medal\Medal.csproj", "{900C21A4-7575-4A4B-B489-93129D19A55A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{900C21A4-7575-4A4B-B489-93129D19A55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{900C21A4-7575-4A4B-B489-93129D19A55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{900C21A4-7575-4A4B-B489-93129D19A55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{900C21A4-7575-4A4B-B489-93129D19A55A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83F01641-ADD0-49F0-AE48-D3CBB557B896}
+	EndGlobalSection
+EndGlobal
