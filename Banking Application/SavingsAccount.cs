@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Banking_Application;
+﻿using Banking_Application;
 class SavingsAccount : Account
 {
     //fields
@@ -19,7 +13,7 @@ class SavingsAccount : Account
     }
     public new void Deposit(double amount, Person person)
     {
-        if (person.IsAuthenticated)
+        if (IsHolder(person.Name))
         {
             base.Deposit(amount, person);
         }
@@ -31,5 +25,24 @@ class SavingsAccount : Account
             throw new AccountException("This person is not associated with this account.");
         }
 
+        if (!person.IsAuthenticated)
+        {
+            throw new AccountException("This person is not authenticated.");
+        }
+
+        if (amount > Balance)
+        {
+            throw new AccountException("Insufficient funds.");
+        }
+
+        base.Deposit(-amount, person);
+
+    }
+    public override void PrepareMonthlyReport()
+    {
+        double serviceCharge = transactions.Count * COST_PER_TRANSACTION;
+        double interest = LowestBalance * INTEREST_RATE / 12;
+        Balance += interest - serviceCharge;
+        transactions.Clear();
     }
 }

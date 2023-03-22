@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Banking_Application;
+﻿using Banking_Application;
 class CheckingAccount : Account
 {
     private static readonly double COST_PER_TRANSACTION = 0.05;
