@@ -69,4 +69,15 @@ class AccountException : Exception
     }
 
 }
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("\nAll acounts:");
+        Bank.PrintAccounts();
+        Console.WriteLine("\nAll Users:");
+        Bank.PrintPersons();
 
+    }
+
+}

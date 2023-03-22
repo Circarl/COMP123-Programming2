@@ -17,7 +17,7 @@ class VisaAccount : Account
     public void DoPayment(double amount, Person person)
         => Deposit(amount, person);
     public void DoPurchase(double amount, Person person)
-    { 
+    {
         if (!holders.Contains(person))
         {
             throw new AccountException("Person is not associated with this account");
