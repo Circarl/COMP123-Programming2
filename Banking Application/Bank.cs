@@ -31,7 +31,7 @@ static class Bank
     private static void CreateAccounts()
     {
         accounts = new List<Account>{
-            new VisaAccount(),              //VS-100000
+            new VisaAccount(700),              //VS-100000
             new VisaAccount(550, -500),     //VS-100001
             new SavingsAccount(5000),        //SV-100002
             new SavingsAccount(),            //SV-100003
