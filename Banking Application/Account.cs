@@ -35,19 +35,18 @@ namespace Banking_Application
             Number = type + _LAST_NUMBER.ToString();
             _LAST_NUMBER++;
         }
-        //+ «constructor» Account(type : string, balance : double)
-        public void AddUser(Person person) {
+        public void AddUser(Person person) 
+        {
             holders.Add(person);
-                }
-        //+ AddUser(person : Person) : void
-        public void Deposit(double amount, Person person) {
+        }
 
+        public void Deposit(double amount, Person person)
+        {
             Balance += amount;
             if (Balance < LowestBalance) { LowestBalance = Balance; }
             Transaction transact = new Transaction(Number, amount, Balance, person, DateTime.Now);
             transactions.Add(transact);
         }
-        //+ Deposit(amount : double, person : Person) : void
         public bool IsHolder(string name) {
             foreach (Person person in holders)
             {
@@ -58,8 +57,27 @@ namespace Banking_Application
             }
             return false;
         }
-        //+ IsHolder(name : string) : bool
-        //+ PrepareMonthlyReport() : void
+        public abstract void PrepareMonthlyReport();
+        public override string ToString()
+        {
+            string result = $"Account Number: {Number}\nUsers:\n";
+            foreach (Person person in holders)
+            {
+                result += $"{person.Name}\n";
+            }
+            result += $"Balance: {Balance}\nTransactions:\n";
+            foreach (Transaction transaction in transactions)
+            {
+                result += $"{transaction}\n";
+            }
+            return result;
+        }
         //+ ToString() : string
+        //a.Declare and initialise a string variable to store the return value and add the following to it:
+        //b.Add the AccountNumber to the result value
+        //c.Adds the names of each of the users of the account
+        //d.Adds the Balance
+        //e.	Adds all the transactions
+
     }
 }
