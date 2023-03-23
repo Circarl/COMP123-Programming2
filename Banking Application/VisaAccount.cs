@@ -4,8 +4,8 @@ using System;
 class VisaAccount : Account
 {
     //fields
-    private static double _INTEREST_RATE;
-    private double _creditLimit = 0.1995;
+    private static double _INTEREST_RATE = 0.1995;
+    private double _creditLimit;
     //    -$ INTEREST_RATE 		: double
     //- credilLimit	: double
 

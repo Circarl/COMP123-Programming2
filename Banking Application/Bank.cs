@@ -1,10 +1,9 @@
 ﻿using Banking_Application;
-
 static class Bank
 {
     //fields
-    static List<Account> accounts;
-    static List<Person> persons;
+    private static List<Account> accounts = new List<Account>();
+    private static List<Person> persons = new List<Person>();
 
     //properties
 
@@ -31,7 +30,7 @@ static class Bank
     private static void CreateAccounts()
     {
         accounts = new List<Account>{
-            new VisaAccount(700),              //VS-100000
+            new VisaAccount(500),              //VS-100000
             new VisaAccount(550, -500),     //VS-100001
             new SavingsAccount(5000),        //SV-100002
             new SavingsAccount(),            //SV-100003
@@ -100,7 +99,7 @@ static class Bank
             if (account.Number == number)
                 return account;
         }
-        throw new AccountException($"Account with number '{number}' not found.");
+        throw new AccountException(AccountException.ACCOUNT_DOES_NOT_EXIST);
     }
 
 
