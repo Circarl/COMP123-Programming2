@@ -4,6 +4,8 @@ using System;
 using Newtonsoft.Json;
 namespace Banking_Application
 {
+    //Carl Kevin Gasal  -Winter2023
+    //301242419
     class Person
     {
         //Fields
