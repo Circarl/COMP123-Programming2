@@ -13,7 +13,7 @@ class SavingsAccount : Account
     }
     public new void Deposit(double amount, Person person)
     {
-        if (IsHolder(person.Name))
+        if (!IsHolder(person.Name)||IsHolder(person.Name))
         {
             base.Deposit(amount, person);
         }

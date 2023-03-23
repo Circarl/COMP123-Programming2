@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System.Reflection.Metadata.Ecma335;
 using System;
+using Newtonsoft.Json;
 namespace Banking_Application
 {
     class Person
@@ -50,7 +51,7 @@ namespace Banking_Application
         public override string ToString()
         {
             string type = Amount > 0 ? "Deposit" : "Withdraw";
-            return $"{Time.ToShortTimeString()} {Originator.Name,10} {type,10} {Math.Abs(Amount),12:C2} {EndBalance,12:C2}"; //include withdraw or deposit in the output
+            return $"{Time.ToShortTimeString()} {Originator.Name,-10} {type,10} {Math.Abs(Amount),12:C2} {EndBalance,12:C2}"; //include withdraw or deposit in the output
         }
     }
 
@@ -105,6 +106,7 @@ namespace Banking_Application
             }
             catch (AccountException e) { Console.WriteLine(e.Message); }
 
+
             a.DoPayment(400, p0);
             Console.WriteLine(a);
 
@@ -121,11 +123,7 @@ namespace Banking_Application
             b.Deposit(300, p3);     //ok even though p3 is not a holder
             b.Deposit(32.90, p2);
             b.Deposit(50, p5);
-            try
-            {
-                b.Withdraw(111.11, p5); //no overdraft
-            }
-            catch (AccountException e) { Console.WriteLine(e.Message); }
+            b.Withdraw(111.11, p5);
             Console.WriteLine(b);
 
 
@@ -197,6 +195,7 @@ namespace Banking_Application
             c.PrepareMonthlyReport();   //all transactions are cleared, balance changes
             Console.WriteLine(c);
 
+            Bank.SaveAccounts("Accounts.txt");
 
         }
 

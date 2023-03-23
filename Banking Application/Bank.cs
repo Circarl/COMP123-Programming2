@@ -1,9 +1,14 @@
 ﻿using Banking_Application;
+using Newtonsoft.Json;
+
+
 static class Bank
 {
     //fields
     private static List<Account> accounts = new List<Account>();
     private static List<Person> persons = new List<Person>();
+
+    public static object JsonConvert { get; private set; }
 
     //properties
 
@@ -72,9 +77,15 @@ static class Bank
             Console.WriteLine(account);
         }
     }
-    public static void SaveAccounts(string filename) //save all accounts in the accounts collection to a text file in json format.
+    public static void SaveAccounts(string filename)
     {
-        //add json format
+        using (StreamWriter sw = new StreamWriter("Accounts.txt"))
+        {
+            foreach (var ACCOUNT in accounts)
+            {
+                sw.WriteLine(ACCOUNT.ToString());
+            }
+        }
     }
     public static void PrintPersons()
     {
@@ -101,10 +112,6 @@ static class Bank
                 return account;
             }
         }
-
-        throw new AccountException($"Account '{number}' not found");
+        throw new AccountException(AccountException.USER_DOES_NOT_EXIST);
     }
-
-
-
 }
