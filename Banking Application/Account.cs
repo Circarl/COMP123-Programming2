@@ -10,11 +10,10 @@ using System.Xml.Linq;
 abstract class Account
 {
     //        Fields
-    //private static int CURRENT_NUMBER;
+    private static int CURRENT_NUMBER;
     protected readonly List<Transaction> transactions = new List<Transaction>();
     protected readonly List<Person> holders = new List<Person>();
     public readonly string Number;
-    private static int _LAST_NUMBER = 0;
     //-$ CURRENT_NUMBER : int
     //# transactions : List<Transaction>
     //# holders : List<Person>
@@ -27,12 +26,16 @@ abstract class Account
     //+ «property protected setter» LowestBalance : double
 
     //      Methods
+    static Account()
+    {
+        CURRENT_NUMBER = 100000;
+    }
     public Account(string type, double balance)
     {
         Balance = balance;
         LowestBalance = balance;
-        Number = type + _LAST_NUMBER.ToString();
-        _LAST_NUMBER++;
+        Number = type + CURRENT_NUMBER;    //VS-100000
+        CURRENT_NUMBER++;
     }
     public void AddUser(Person person) 
     {
@@ -59,12 +62,13 @@ abstract class Account
     public abstract void PrepareMonthlyReport();
     public override string ToString()
     {
-        string result = $"Account Number: {Number}\nUsers:\n";
+        Console.WriteLine();
+        string result = $"Account Number: {Number}\nUsers: ";
         foreach (Person person in holders)
         {
-            result += $"{person.Name}\n";
+            result += $"{person.Name}, ";
         }
-        result += $"Balance: {Balance}\nTransactions:\n";
+        result += $"\nBalance: {Balance:C2}\nTransactions:\n";
         foreach (Transaction transaction in transactions)
         {
             result += $"{transaction}\n";

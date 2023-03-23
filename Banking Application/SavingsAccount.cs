@@ -22,17 +22,17 @@ class SavingsAccount : Account
     {
         if (!IsHolder(person.Name))
         {
-            throw new AccountException("This person is not associated with this account.");
+            throw new AccountException(AccountException.NAME_NOT_ASSOCIATED_WITH_ACCOUNT);
         }
 
         if (!person.IsAuthenticated)
         {
-            throw new AccountException("This person is not authenticated.");
+            throw new AccountException(AccountException.USER_NOT_LOGGED_IN);
         }
 
         if (amount > Balance)
         {
-            throw new AccountException("Insufficient funds.");
+            throw new AccountException(AccountException.NO_OVERDRAFT);
         }
 
         base.Deposit(-amount, person);

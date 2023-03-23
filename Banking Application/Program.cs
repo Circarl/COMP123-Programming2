@@ -49,8 +49,8 @@ namespace Banking_Application
 
         public override string ToString()
         {
-            string type = Amount > 0 ? "Deposit" : "withdrawal";
-            return $"{Time.ToShortTimeString()} {Originator.Name} {type} {Math.Abs(Amount):C2} {EndBalance:C2}"; //include withdraw or deposit in the output
+            string type = Amount > 0 ? "Deposit" : "Withdraw";
+            return $"{Time.ToShortTimeString()} {Originator.Name,10} {type,10} {Math.Abs(Amount),12:C2} {EndBalance,12:C2}"; //include withdraw or deposit in the output
         }
     }
 
@@ -85,9 +85,9 @@ namespace Banking_Application
             p7.Login("890");
 
 
-            //a visa account
-            VisaAccount a = (VisaAccount)Bank.GetAccount("VS-100000");
+            //VISA ACCOUNT
 
+            VisaAccount a = (VisaAccount)Bank.GetAccount("VS-100000");
             a.DoPayment(1500, p0);
             a.DoPurchase(200, p1);
             a.DoPurchase(25, p2);
@@ -99,11 +99,17 @@ namespace Banking_Application
             a = (VisaAccount)Bank.GetAccount("VS-100001");
             a.DoPurchase(25, p3);
             a.DoPurchase(20, p4);
-            a.DoPurchase(15, p2);
+            try
+            {
+                a.DoPurchase(5825, p2); //credit limit exceeded
+            }
+            catch (AccountException e) { Console.WriteLine(e.Message); }
+
             a.DoPayment(400, p0);
             Console.WriteLine(a);
 
-            //a saving account
+            //SAVINGS ACCOUNT
+
             SavingsAccount b = (SavingsAccount)Bank.GetAccount("SV-100002");
             b.Withdraw(300, p0);
             b.Withdraw(32.90, p6);
@@ -115,8 +121,14 @@ namespace Banking_Application
             b.Deposit(300, p3);     //ok even though p3 is not a holder
             b.Deposit(32.90, p2);
             b.Deposit(50, p5);
-            b.Withdraw(111.11, p5);
+            try
+            {
+                b.Withdraw(111.11, p5); //no overdraft
+            }
+            catch (AccountException e) { Console.WriteLine(e.Message); }
             Console.WriteLine(b);
+
+
 
             //a checking account
             CheckingAccount c = (CheckingAccount)Bank.GetAccount("CK-100005");
@@ -138,6 +150,8 @@ namespace Banking_Application
             Console.WriteLine(c);
 
             Console.WriteLine("\n\nExceptions:");
+
+
             //The following will cause exception
             try
             {
@@ -158,11 +172,7 @@ namespace Banking_Application
             }
             catch (AccountException e) { Console.WriteLine(e.Message); }
 
-            try
-            {
-                a.DoPurchase(5825, p2); //credit limit exceeded
-            }
-            catch (AccountException e) { Console.WriteLine(e.Message); }
+
             try
             {
                 c.Withdraw(1500, p5); //no overdraft
@@ -186,6 +196,7 @@ namespace Banking_Application
             Console.WriteLine("\nAfter PrepareMonthlyReport()");
             c.PrepareMonthlyReport();   //all transactions are cleared, balance changes
             Console.WriteLine(c);
+
 
         }
 
