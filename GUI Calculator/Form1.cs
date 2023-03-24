@@ -149,5 +149,11 @@ namespace GUI_Calculator
                 textBox1.SelectionStart = textBox1.TextLength;
             }
         }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            textBox1.Text += button.Text;
+        }
     }
 }
