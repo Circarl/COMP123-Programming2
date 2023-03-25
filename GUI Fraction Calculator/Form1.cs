@@ -28,44 +28,6 @@ namespace GUI_Fraction_Calculator
         private void label4_Click(object sender, EventArgs e)
         {  }
 
-
-        private void DoCalculation(string operation)
-        {
-            int num1 = int.Parse(numerator1.Text);
-            int den1 = int.Parse(denominator1.Text);
-            int num2 = int.Parse(numerator2.Text);
-            int den2 = int.Parse(denominator2.Text);
-            int resultNum, resultDen;
-
-            switch (operation)
-            {
-                case "+":
-                    resultNum = num1 * den2 + num2 * den1;
-                    resultDen = den1 * den2;
-                    break;
-                case "-":
-                    resultNum = num1 * den2 - num2 * den1;
-                    resultDen = den1 * den2;
-                    break;
-                case "*":
-                    resultNum = num1 * num2;
-                    resultDen = den1 * den2;
-                    break;
-                case "/":
-                    resultNum = num1 * den2;
-                    resultDen = den1 * num2;
-                    break;
-                default:
-                    resultNum = 0;
-                    resultDen = 0;
-                    break;
-            }
-
-            resultNumerator.Text = resultNum.ToString();
-            resultDenominator.Text = resultDen.ToString();
-
-        }
-
         private void AddButton_Click(object sender, EventArgs e)
         {
             SelectedOperation = "+";
@@ -129,6 +91,47 @@ namespace GUI_Fraction_Calculator
             {
                 DoCalculation(SelectedOperation);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int num1 = int.Parse(numerator1.Text);
+            int den1 = int.Parse(denominator1.Text);
+            int num2 = int.Parse(numerator2.Text);
+            int den2 = int.Parse(denominator2.Text);
+            int resultNum, resultDen;
+
+            switch (operation)
+            {
+                case "+":
+                    resultNum = num1 * den2 + num2 * den1;
+                    resultDen = den1 * den2;
+                    break;
+                case "-":
+                    resultNum = num1 * den2 - num2 * den1;
+                    resultDen = den1 * den2;
+                    break;
+                case "*":
+                    resultNum = num1 * num2;
+                    resultDen = den1 * den2;
+                    break;
+                case "/":
+                    resultNum = num1 * den2;
+                    resultDen = den1 * num2;
+                    break;
+                default:
+                    resultNum = 0;
+                    resultDen = 0;
+                    break;
+            }
+
+            resultNumerator.Text = resultNum.ToString();
+            resultDenominator.Text = resultDen.ToString();
+        }
+        private void DoCalculation(string operation)
+        {
+            
+
         }
     }
 
