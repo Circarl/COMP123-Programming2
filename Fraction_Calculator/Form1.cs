@@ -12,7 +12,6 @@ namespace Fraction_Calculator
 {
     public partial class Form1 : Form
     {
-        public int TabIndex { get; set; } //sets tab index property
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +30,14 @@ namespace Fraction_Calculator
         private void rbAdd_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNum1_TextChanged(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b') // Accept digits and backspace only
+            {
+                e.Handled = true; // discard the non-digit input
+            }
         }
     }
 }
