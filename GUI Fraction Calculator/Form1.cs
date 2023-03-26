@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI_Fraction_Calculator
 {
@@ -86,51 +87,52 @@ namespace GUI_Fraction_Calculator
         private void result_num(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(numerator1.Text) && !string.IsNullOrEmpty(denominator1.Text) &&
-    !string.IsNullOrEmpty(numerator2.Text) && !string.IsNullOrEmpty(denominator2.Text) &&
-    !string.IsNullOrEmpty(SelectedOperation))
+                !string.IsNullOrEmpty(numerator2.Text) && !string.IsNullOrEmpty(denominator2.Text) &&
+                !string.IsNullOrEmpty(SelectedOperation))
             {
                 DoCalculation(SelectedOperation);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void calculateButton_Click(object sender, EventArgs e)
         {
-            int num1 = int.Parse(numerator1.Text);
-            int den1 = int.Parse(denominator1.Text);
-            int num2 = int.Parse(numerator2.Text);
-            int den2 = int.Parse(denominator2.Text);
-            int resultNum, resultDen;
+            int numerator1 = Convert.ToInt32(textBox1.Text);
+            int denominator1 = Convert.ToInt32(textBox2.Text);
+            int numerator2 = Convert.ToInt32(textBox3.Text);
+            int denominator2 = Convert.ToInt32(textBox4.Text);
+
+            string operation = comboBox1.Text;
+
+            Fraction fraction1 = new Fraction(numerator1, denominator1);
+            Fraction fraction2 = new Fraction(numerator2, denominator2);
+
+            Fraction result;
 
             switch (operation)
             {
                 case "+":
-                    resultNum = num1 * den2 + num2 * den1;
-                    resultDen = den1 * den2;
+                    result = fraction1 + fraction2;
                     break;
                 case "-":
-                    resultNum = num1 * den2 - num2 * den1;
-                    resultDen = den1 * den2;
+                    result = fraction1 - fraction2;
                     break;
                 case "*":
-                    resultNum = num1 * num2;
-                    resultDen = den1 * den2;
+                    result = fraction1 * fraction2;
                     break;
                 case "/":
-                    resultNum = num1 * den2;
-                    resultDen = den1 * num2;
+                    result = fraction1 / fraction2;
                     break;
                 default:
-                    resultNum = 0;
-                    resultDen = 0;
-                    break;
+                    MessageBox.Show("Please select an operation.");
+                    return;
             }
 
-            resultNumerator.Text = resultNum.ToString();
-            resultDenominator.Text = resultDen.ToString();
+            resultNumerator.Text = result.Numerator.ToString();
+            resultDenominator.Text = result.Denominator.ToString();
         }
         private void DoCalculation(string operation)
         {
-            
 
         }
     }
