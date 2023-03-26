@@ -17,8 +17,6 @@ namespace FractionCalculator_GUI
         private Fraction fraction2 = new Fraction();
         private string operation = "+";
 
-        
-
         public MainForm()
         {
             InitializeComponent();
