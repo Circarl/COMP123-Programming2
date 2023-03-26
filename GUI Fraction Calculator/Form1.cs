@@ -59,11 +59,6 @@ namespace GUI_Fraction_Calculator
             SelectedOperation = "*";
         }
 
-        private void result_denom(object sender, EventArgs e)
-        {
-
-        }
-
         private void numerator1(object sender, EventArgs e)
         {
 
@@ -131,7 +126,46 @@ namespace GUI_Fraction_Calculator
             resultNumerator.Text = result.Numerator.ToString();
             resultDenominator.Text = result.Denominator.ToString();
         }
-        private void DoCalculation(string operation)
+        private void DoCalculation()
+        {
+            int num1 = int.Parse(txtNum1.Text);
+            int den1 = int.Parse(txtDen1.Text);
+            int num2 = int.Parse(txtNum2.Text);
+            int den2 = int.Parse(txtDen2.Text);
+
+            int resultNum = 0;
+            int resultDen = 0;
+
+            if (rdbAdd.Checked)
+            {
+                resultNum = num1 * den2 + num2 * den1;
+                resultDen = den1 * den2;
+            }
+            else if (rdbSub.Checked)
+            {
+                resultNum = num1 * den2 - num2 * den1;
+                resultDen = den1 * den2;
+            }
+            else if (rdbMul.Checked)
+            {
+                resultNum = num1 * num2;
+                resultDen = den1 * den2;
+            }
+            else if (rdbDiv.Checked)
+            {
+                resultNum = num1 * den2;
+                resultDen = den1 * num2;
+            }
+
+            txtResult.Text = resultNum.ToString() + "/" + resultDen.ToString();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
         {
 
         }
