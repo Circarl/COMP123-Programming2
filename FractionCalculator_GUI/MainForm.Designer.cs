@@ -50,12 +50,14 @@
             // 
             // btn_Calculate
             // 
-            this.btn_Calculate.Location = new System.Drawing.Point(127, 170);
+            this.btn_Calculate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_Calculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Calculate.Location = new System.Drawing.Point(35, 170);
             this.btn_Calculate.Name = "btn_Calculate";
-            this.btn_Calculate.Size = new System.Drawing.Size(145, 23);
+            this.btn_Calculate.Size = new System.Drawing.Size(347, 23);
             this.btn_Calculate.TabIndex = 5;
             this.btn_Calculate.Text = "Perform Calculation";
-            this.btn_Calculate.UseVisualStyleBackColor = true;
+            this.btn_Calculate.UseVisualStyleBackColor = false;
             this.btn_Calculate.Click += new System.EventHandler(this.btn_Calculate_Click);
             // 
             // label1
@@ -131,6 +133,7 @@
             this.rbSubtract.Name = "rbSubtract";
             this.rbSubtract.Size = new System.Drawing.Size(28, 17);
             this.rbSubtract.TabIndex = 7;
+            this.rbSubtract.TabStop = true;
             this.rbSubtract.Text = "-";
             this.rbSubtract.UseVisualStyleBackColor = true;
             this.rbSubtract.CheckedChanged += new System.EventHandler(this.btn_Calculate_Click);
@@ -142,6 +145,7 @@
             this.rbDivide.Name = "rbDivide";
             this.rbDivide.Size = new System.Drawing.Size(30, 17);
             this.rbDivide.TabIndex = 8;
+            this.rbDivide.TabStop = true;
             this.rbDivide.Text = "/";
             this.rbDivide.UseVisualStyleBackColor = true;
             // 
@@ -152,6 +156,7 @@
             this.rbMultiply.Name = "rbMultiply";
             this.rbMultiply.Size = new System.Drawing.Size(29, 17);
             this.rbMultiply.TabIndex = 9;
+            this.rbMultiply.TabStop = true;
             this.rbMultiply.Text = "*";
             this.rbMultiply.UseVisualStyleBackColor = true;
             // 
@@ -170,6 +175,7 @@
             this.txtDenominator1.Name = "txtDenominator1";
             this.txtDenominator1.Size = new System.Drawing.Size(21, 20);
             this.txtDenominator1.TabIndex = 2;
+            this.txtDenominator1.TextChanged += new System.EventHandler(this.txtDenominator1_TextChanged);
             // 
             // txtDenominator2
             // 
@@ -220,8 +226,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(404, 205);
+            this.BackColor = System.Drawing.Color.OldLace;
+            this.ClientSize = new System.Drawing.Size(414, 205);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtResultDen);
             this.Controls.Add(this.txtResultNum);

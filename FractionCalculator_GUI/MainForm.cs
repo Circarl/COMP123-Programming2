@@ -145,6 +145,7 @@ namespace FractionCalculator_GUI
         {
             DoCalculation();
         }
+
         //preventing non-digit input events 
         private void txtNumerator1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -178,6 +179,9 @@ namespace FractionCalculator_GUI
                 e.Handled = true;
         }
 
+        private void txtDenominator1_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
