@@ -55,7 +55,7 @@
             this.btn_Calculate.Location = new System.Drawing.Point(35, 170);
             this.btn_Calculate.Name = "btn_Calculate";
             this.btn_Calculate.Size = new System.Drawing.Size(347, 23);
-            this.btn_Calculate.TabIndex = 5;
+            this.btn_Calculate.TabIndex = 9;
             this.btn_Calculate.Text = "Perform Calculation";
             this.btn_Calculate.UseVisualStyleBackColor = false;
             this.btn_Calculate.Click += new System.EventHandler(this.btn_Calculate_Click);
@@ -121,10 +121,11 @@
             this.rbAdd.Location = new System.Drawing.Point(129, 46);
             this.rbAdd.Name = "rbAdd";
             this.rbAdd.Size = new System.Drawing.Size(31, 17);
-            this.rbAdd.TabIndex = 6;
+            this.rbAdd.TabIndex = 3;
             this.rbAdd.TabStop = true;
             this.rbAdd.Text = "+";
             this.rbAdd.UseVisualStyleBackColor = true;
+            this.rbAdd.CheckedChanged += new System.EventHandler(this.Rb_CheckedChanged);
             // 
             // rbSubtract
             // 
@@ -132,7 +133,7 @@
             this.rbSubtract.Location = new System.Drawing.Point(129, 69);
             this.rbSubtract.Name = "rbSubtract";
             this.rbSubtract.Size = new System.Drawing.Size(28, 17);
-            this.rbSubtract.TabIndex = 7;
+            this.rbSubtract.TabIndex = 4;
             this.rbSubtract.TabStop = true;
             this.rbSubtract.Text = "-";
             this.rbSubtract.UseVisualStyleBackColor = true;
@@ -144,7 +145,7 @@
             this.rbDivide.Location = new System.Drawing.Point(129, 92);
             this.rbDivide.Name = "rbDivide";
             this.rbDivide.Size = new System.Drawing.Size(30, 17);
-            this.rbDivide.TabIndex = 8;
+            this.rbDivide.TabIndex = 5;
             this.rbDivide.TabStop = true;
             this.rbDivide.Text = "/";
             this.rbDivide.UseVisualStyleBackColor = true;
@@ -155,7 +156,7 @@
             this.rbMultiply.Location = new System.Drawing.Point(129, 115);
             this.rbMultiply.Name = "rbMultiply";
             this.rbMultiply.Size = new System.Drawing.Size(29, 17);
-            this.rbMultiply.TabIndex = 9;
+            this.rbMultiply.TabIndex = 6;
             this.rbMultiply.TabStop = true;
             this.rbMultiply.Text = "*";
             this.rbMultiply.UseVisualStyleBackColor = true;
@@ -183,7 +184,7 @@
             this.txtDenominator2.Location = new System.Drawing.Point(223, 72);
             this.txtDenominator2.Name = "txtDenominator2";
             this.txtDenominator2.Size = new System.Drawing.Size(21, 20);
-            this.txtDenominator2.TabIndex = 4;
+            this.txtDenominator2.TabIndex = 8;
             // 
             // txtNumerator2
             // 
@@ -191,7 +192,7 @@
             this.txtNumerator2.Location = new System.Drawing.Point(180, 72);
             this.txtNumerator2.Name = "txtNumerator2";
             this.txtNumerator2.Size = new System.Drawing.Size(21, 20);
-            this.txtNumerator2.TabIndex = 3;
+            this.txtNumerator2.TabIndex = 7;
             // 
             // txtResultDen
             // 

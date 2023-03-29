@@ -104,7 +104,7 @@ namespace FractionCalculator_GUI
 
             return result;
         }
-
+        //Simply result of fraction
         private Fraction SimplifyFraction(Fraction fraction)
         {
             int gcd = GCD(fraction.Top, fraction.Bottom);
