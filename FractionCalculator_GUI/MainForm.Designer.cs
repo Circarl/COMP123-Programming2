@@ -145,6 +145,7 @@
             this.rbSubtract.Text = "-";
             this.rbSubtract.UseVisualStyleBackColor = true;
             this.rbSubtract.CheckedChanged += new System.EventHandler(this.btn_Calculate_Click);
+            this.rbSubtract.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rbSubtract_KeyDown);
             this.rbSubtract.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbSubtract_KeyPress);
             // 
             // rbDivide
@@ -156,6 +157,7 @@
             this.rbDivide.TabIndex = 13;
             this.rbDivide.Text = "/";
             this.rbDivide.UseVisualStyleBackColor = true;
+            this.rbDivide.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rbDivide_KeyDown);
             this.rbDivide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbDivide_KeyPress);
             // 
             // rbMultiply
@@ -167,6 +169,7 @@
             this.rbMultiply.TabIndex = 14;
             this.rbMultiply.Text = "*";
             this.rbMultiply.UseVisualStyleBackColor = true;
+            this.rbMultiply.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rbMultiply_KeyDown);
             this.rbMultiply.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbMultiply_KeyPress);
             // 
             // txtNumerator1

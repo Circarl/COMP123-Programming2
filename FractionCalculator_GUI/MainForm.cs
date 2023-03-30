@@ -36,13 +36,20 @@ namespace FractionCalculator_GUI
             txtNumerator1.TabIndex = 5;
             txtDenominator1.TabIndex = 6;
             rbAdd.TabIndex = 0;
+            rbAdd.KeyDown += rbAdd_KeyDown;
             rbSubtract.TabIndex = 1;
+            rbSubtract.KeyDown += rbSubtract_KeyDown;
             rbMultiply.TabIndex = 2;
+            rbMultiply.KeyDown += rbMultiply_KeyDown;
             rbDivide.TabIndex = 3;
+            rbDivide.KeyDown += rbDivide_KeyDown;
             txtNumerator2.TabIndex = 7;
             txtDenominator2.TabIndex = 8;
             btn_Calculate.TabIndex = 9;
             txtResultNum.TabIndex = 10;
+
+
+
         }
         private void Txt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -73,7 +80,7 @@ namespace FractionCalculator_GUI
             if (radioButton.Checked)
             {
                 operation = radioButton.Text;
-                DoCalculation();
+                //DoCalculation();
             }
             else
             {
@@ -155,25 +162,25 @@ namespace FractionCalculator_GUI
         }
 
         //click events for operation buttons
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            DoCalculation();
-        }
+        //private void btnAdd_Click(object sender, EventArgs e)
+        //{
+        //    DoCalculation();
+        //}
 
-        private void btnSubtract_Click(object sender, EventArgs e)
-        {
-            DoCalculation();
-        }
+        //private void btnSubtract_Click(object sender, EventArgs e)
+        //{
+        //    DoCalculation();
+        //}
 
-        private void btnMultiply_Click(object sender, EventArgs e)
-        {
-            DoCalculation();
-        }
+        //private void btnMultiply_Click(object sender, EventArgs e)
+        //{
+        //    DoCalculation();
+        //}
 
-        private void btnDivide_Click(object sender, EventArgs e)
-        {
-            DoCalculation();
-        }
+        //private void btnDivide_Click(object sender, EventArgs e)
+        //{
+        //    DoCalculation();
+        //}
 
         //preventing non-digit input events 
         private void txtNumerator1_KeyPress(object sender, KeyPressEventArgs e)
@@ -229,6 +236,7 @@ namespace FractionCalculator_GUI
                 rbSubtract.Checked = true;
                 e.Handled = true;
             }
+
         }
 
         private void rbDivide_KeyPress(object sender, KeyPressEventArgs e)
@@ -254,6 +262,55 @@ namespace FractionCalculator_GUI
 
         }
 
+        private void rbSubtract_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                Control[] radioButtons = new Control[] { rbAdd, rbSubtract, rbMultiply, rbDivide };
+                for (int i = 0; i < radioButtons.Length; i++)
+                {
+                    if (radioButtons[i] == sender && i < radioButtons.Length - 1)
+                    {
+                        radioButtons[i + 1].Focus();
+                        e.Handled = true;
+                        break;
+                    }
+                }
+            }
+        }
 
+        private void rbDivide_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                Control[] radioButtons = new Control[] { rbAdd, rbSubtract, rbMultiply, rbDivide };
+                for (int i = 0; i < radioButtons.Length; i++)
+                {
+                    if (radioButtons[i] == sender && i < radioButtons.Length - 1)
+                    {
+                        radioButtons[i + 1].Focus();
+                        e.Handled = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void rbMultiply_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                Control[] radioButtons = new Control[] { rbAdd, rbSubtract, rbMultiply, rbDivide };
+                for (int i = 0; i < radioButtons.Length; i++)
+                {
+                    if (radioButtons[i] == sender && i < radioButtons.Length - 1)
+                    {
+                        radioButtons[i + 1].Focus();
+                        e.Handled = true;
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
