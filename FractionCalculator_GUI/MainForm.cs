@@ -84,7 +84,7 @@ namespace FractionCalculator_GUI
             }
             else
             {
-                // Set the focus to the next radio button in the group
+                //set the focus to the next radio button in the group
                 Control[] radioButtons = new Control[] { rbAdd, rbSubtract, rbMultiply, rbDivide };
                 for (int i = 0; i < radioButtons.Length; i++)
                 {
@@ -140,7 +140,7 @@ namespace FractionCalculator_GUI
 
             return result;
         }
-        //Simply result of fraction
+        //simply result of fraction
         private Fraction SimplifyFraction(Fraction fraction)
         {
             int gcd = GCD(fraction.Top, fraction.Bottom);
