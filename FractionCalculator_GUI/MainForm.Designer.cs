@@ -55,54 +55,60 @@
             this.btn_Calculate.Location = new System.Drawing.Point(35, 170);
             this.btn_Calculate.Name = "btn_Calculate";
             this.btn_Calculate.Size = new System.Drawing.Size(347, 23);
-            this.btn_Calculate.TabIndex = 9;
+            this.btn_Calculate.TabIndex = 17;
             this.btn_Calculate.Text = "Perform Calculation";
             this.btn_Calculate.UseVisualStyleBackColor = false;
             this.btn_Calculate.Click += new System.EventHandler(this.btn_Calculate_Click);
+            this.btn_Calculate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn_Calculate_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Location = new System.Drawing.Point(46, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(26, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "First";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Location = new System.Drawing.Point(190, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Second";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Enabled = false;
             this.label3.Location = new System.Drawing.Point(330, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 2;
             this.label3.Text = "Result";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Enabled = false;
             this.label4.Location = new System.Drawing.Point(60, 75);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(12, 13);
-            this.label4.TabIndex = 4;
+            this.label4.TabIndex = 3;
             this.label4.Text = "/";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Enabled = false;
             this.label5.Location = new System.Drawing.Point(205, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(12, 13);
-            this.label5.TabIndex = 5;
+            this.label5.TabIndex = 4;
             this.label5.Text = "/";
             // 
             // label6
@@ -111,7 +117,7 @@
             this.label6.Location = new System.Drawing.Point(345, 75);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(12, 13);
-            this.label6.TabIndex = 6;
+            this.label6.TabIndex = 7;
             this.label6.Text = "/";
             // 
             // rbAdd
@@ -121,11 +127,13 @@
             this.rbAdd.Location = new System.Drawing.Point(129, 46);
             this.rbAdd.Name = "rbAdd";
             this.rbAdd.Size = new System.Drawing.Size(31, 17);
-            this.rbAdd.TabIndex = 3;
+            this.rbAdd.TabIndex = 11;
             this.rbAdd.TabStop = true;
             this.rbAdd.Text = "+";
             this.rbAdd.UseVisualStyleBackColor = true;
             this.rbAdd.CheckedChanged += new System.EventHandler(this.Rb_CheckedChanged);
+            this.rbAdd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rbAdd_KeyDown);
+            this.rbAdd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbAdd_KeyPress);
             // 
             // rbSubtract
             // 
@@ -133,11 +141,11 @@
             this.rbSubtract.Location = new System.Drawing.Point(129, 69);
             this.rbSubtract.Name = "rbSubtract";
             this.rbSubtract.Size = new System.Drawing.Size(28, 17);
-            this.rbSubtract.TabIndex = 4;
-            this.rbSubtract.TabStop = true;
+            this.rbSubtract.TabIndex = 12;
             this.rbSubtract.Text = "-";
             this.rbSubtract.UseVisualStyleBackColor = true;
             this.rbSubtract.CheckedChanged += new System.EventHandler(this.btn_Calculate_Click);
+            this.rbSubtract.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbSubtract_KeyPress);
             // 
             // rbDivide
             // 
@@ -145,10 +153,10 @@
             this.rbDivide.Location = new System.Drawing.Point(129, 92);
             this.rbDivide.Name = "rbDivide";
             this.rbDivide.Size = new System.Drawing.Size(30, 17);
-            this.rbDivide.TabIndex = 5;
-            this.rbDivide.TabStop = true;
+            this.rbDivide.TabIndex = 13;
             this.rbDivide.Text = "/";
             this.rbDivide.UseVisualStyleBackColor = true;
+            this.rbDivide.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbDivide_KeyPress);
             // 
             // rbMultiply
             // 
@@ -156,10 +164,10 @@
             this.rbMultiply.Location = new System.Drawing.Point(129, 115);
             this.rbMultiply.Name = "rbMultiply";
             this.rbMultiply.Size = new System.Drawing.Size(29, 17);
-            this.rbMultiply.TabIndex = 6;
-            this.rbMultiply.TabStop = true;
+            this.rbMultiply.TabIndex = 14;
             this.rbMultiply.Text = "*";
             this.rbMultiply.UseVisualStyleBackColor = true;
+            this.rbMultiply.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rbMultiply_KeyPress);
             // 
             // txtNumerator1
             // 
@@ -167,7 +175,7 @@
             this.txtNumerator1.Location = new System.Drawing.Point(35, 72);
             this.txtNumerator1.Name = "txtNumerator1";
             this.txtNumerator1.Size = new System.Drawing.Size(21, 20);
-            this.txtNumerator1.TabIndex = 1;
+            this.txtNumerator1.TabIndex = 6;
             // 
             // txtDenominator1
             // 
@@ -175,7 +183,7 @@
             this.txtDenominator1.Location = new System.Drawing.Point(78, 72);
             this.txtDenominator1.Name = "txtDenominator1";
             this.txtDenominator1.Size = new System.Drawing.Size(21, 20);
-            this.txtDenominator1.TabIndex = 2;
+            this.txtDenominator1.TabIndex = 10;
             this.txtDenominator1.TextChanged += new System.EventHandler(this.txtDenominator1_TextChanged);
             // 
             // txtDenominator2
@@ -184,7 +192,7 @@
             this.txtDenominator2.Location = new System.Drawing.Point(223, 72);
             this.txtDenominator2.Name = "txtDenominator2";
             this.txtDenominator2.Size = new System.Drawing.Size(21, 20);
-            this.txtDenominator2.TabIndex = 8;
+            this.txtDenominator2.TabIndex = 16;
             // 
             // txtNumerator2
             // 
@@ -192,7 +200,7 @@
             this.txtNumerator2.Location = new System.Drawing.Point(180, 72);
             this.txtNumerator2.Name = "txtNumerator2";
             this.txtNumerator2.Size = new System.Drawing.Size(21, 20);
-            this.txtNumerator2.TabIndex = 7;
+            this.txtNumerator2.TabIndex = 15;
             // 
             // txtResultDen
             // 
@@ -201,7 +209,7 @@
             this.txtResultDen.Name = "txtResultDen";
             this.txtResultDen.ReadOnly = true;
             this.txtResultDen.Size = new System.Drawing.Size(21, 20);
-            this.txtResultDen.TabIndex = 16;
+            this.txtResultDen.TabIndex = 8;
             this.txtResultDen.TabStop = false;
             // 
             // txtResultNum
@@ -211,16 +219,17 @@
             this.txtResultNum.Name = "txtResultNum";
             this.txtResultNum.ReadOnly = true;
             this.txtResultNum.Size = new System.Drawing.Size(21, 20);
-            this.txtResultNum.TabIndex = 15;
+            this.txtResultNum.TabIndex = 6;
             this.txtResultNum.TabStop = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Enabled = false;
             this.label7.Location = new System.Drawing.Point(276, 75);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(13, 13);
-            this.label7.TabIndex = 17;
+            this.label7.TabIndex = 5;
             this.label7.Text = "=";
             // 
             // MainForm

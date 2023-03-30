@@ -33,16 +33,16 @@ namespace FractionCalculator_GUI
             rbMultiply.CheckedChanged += Rb_CheckedChanged;
             rbDivide.CheckedChanged += Rb_CheckedChanged;
 
-            txtNumerator1.TabIndex = 0;
-            txtDenominator1.TabIndex = 1;
-            txtNumerator2.TabIndex = 2;
-            txtDenominator2.TabIndex = 3;
-            rbAdd.TabIndex = 4;
-            rbSubtract.TabIndex = 5;
-            rbMultiply.TabIndex = 6;
-            rbDivide.TabIndex = 7;
-            btn_Calculate.TabIndex = 8;
-            txtResultNum.TabIndex = 9;
+            txtNumerator1.TabIndex = 5;
+            txtDenominator1.TabIndex = 6;
+            rbAdd.TabIndex = 0;
+            rbSubtract.TabIndex = 1;
+            rbMultiply.TabIndex = 2;
+            rbDivide.TabIndex = 3;
+            txtNumerator2.TabIndex = 7;
+            txtDenominator2.TabIndex = 8;
+            btn_Calculate.TabIndex = 9;
+            txtResultNum.TabIndex = 10;
         }
         private void Txt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -51,6 +51,22 @@ namespace FractionCalculator_GUI
             else
                 e.Handled = true;
         }
+        private void rbAdd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab)
+            {
+                Control[] radioButtons = new Control[] { rbAdd, rbSubtract, rbMultiply, rbDivide };
+                for (int i = 0; i < radioButtons.Length; i++)
+                {
+                    if (radioButtons[i] == sender && i < radioButtons.Length - 1)
+                    {
+                        radioButtons[i + 1].Focus();
+                        e.Handled = true;
+                        break;
+                    }
+                }
+            }
+        }
         private void Rb_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
@@ -58,6 +74,19 @@ namespace FractionCalculator_GUI
             {
                 operation = radioButton.Text;
                 DoCalculation();
+            }
+            else
+            {
+                // Set the focus to the next radio button in the group
+                Control[] radioButtons = new Control[] { rbAdd, rbSubtract, rbMultiply, rbDivide };
+                for (int i = 0; i < radioButtons.Length; i++)
+                {
+                    if (radioButtons[i] == radioButton && i < radioButtons.Length - 1)
+                    {
+                        radioButtons[i + 1].Focus();
+                        break;
+                    }
+                }
             }
         }
         private void btn_Calculate_Click(object sender, EventArgs e)
@@ -183,5 +212,48 @@ namespace FractionCalculator_GUI
         {
 
         }
+        //Spacebar keypress on the radio buttons option
+        private void rbAdd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+            {
+                rbAdd.Checked = true;
+                e.Handled = true;
+            }
+        }
+
+        private void rbSubtract_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+            {
+                rbSubtract.Checked = true;
+                e.Handled = true;
+            }
+        }
+
+        private void rbDivide_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+            {
+                rbDivide.Checked = true;
+                e.Handled = true;
+            }
+        }
+
+        private void rbMultiply_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+            {
+                rbMultiply.Checked = true;
+                e.Handled = true;
+            }
+        }
+
+        private void btn_Calculate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+
     }
 }
