@@ -3,13 +3,15 @@ using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using System.Transactions;
 
-namespace Assignment
+namespace Group3_Project
 {
     class Program
     {
-        public static void Main(string[] args)
+        static List<Student> students = new List<Student>();
+        static void Main(string[] args)
         {
             string choice;
+
             do
             {
                 Console.Clear();
@@ -20,30 +22,29 @@ namespace Assignment
                 switch (choice)
                 {
                     case "1":
-                        Console.WriteLine($"\nTotal Sum is: {CalculateSum(5)}");
+                        AddStudent();
                         break;
                     case "2":
-                        Console.WriteLine($"\nTotal Average is: {CalculateAverage(5):f2}");
+                        Console.Clear();
+                        DisplayAllStudents();
                         break;
                     case "3":
-                        //DisplayIntArray(numbers);
+                        SearchStudent();
                         break;
                     case "4":
-                        //DisplayStringArray(poem);
+                        DeleteStudent();
                         break;
                     case "5":
-                        //DisplayIntArray(CreateIntArray());
+                        DisplaySummary();
                         break;
                     case "6":
-                        Console.WriteLine("\nThank you! Have a nice day!\nAny key to exit...");
+                        Console.WriteLine("\nThank you! Have a nice day!\nPress any key to exit...");
+                        Console.ReadKey();
                         break;
                     default:
                         Console.WriteLine("\nInvalid input.\nEnter from 1 - 5, 6 for exit.");
                         break;
                 }
-                if (choice != "6")
-                    Console.Write("\nAny key - back to Main Menu... ");
-                Console.ReadKey();
             } while (choice != "6");
 
         }
@@ -57,75 +58,99 @@ namespace Assignment
             Console.WriteLine("5.) Display Summary");
             Console.WriteLine("6.) Exit");
         }
-        public static int CalculateSum(int x)
+        static void AddStudent()
         {
             Console.Clear();
-            int count = x;
-            int i = 0;
-            int totalSum = 0;
-            int[] number = new int[count];
-            do
+            Console.WriteLine("+++ Add Student: +++\n");
+
+            Console.Write("Enter Student Name: ");
+            string studentName = Console.ReadLine();
+
+            Console.Write("Enter Student ID: ");
+            int studentID = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter Student GPA: ");
+            double studentGPA = Convert.ToDouble(Console.ReadLine());
+
+            Student newStudent = new Student(studentName, studentID, studentGPA);
+            students.Add(newStudent);
+
+            Console.WriteLine($"Student Added: {newStudent}\nPress any key to continue...");
+            Console.ReadKey();
+        }
+        static void DisplayAllStudents()
+        {
+            Console.WriteLine("+++ All Students: +++\n");
+
+            if (students.Count == 0)
             {
-                Console.Write("Enter Integer: ");
-                number[i] = Convert.ToInt32(Console.ReadLine());
-                totalSum += number[i];
-                count--;
-            } while (count != 0);
-
-            return totalSum;
-
-        }
-        static double CalculateAverage(int x)
-        {
-            Console.Clear();
-            double average = 0.00f;
-            int count = x;
-            int countSum = x;
-            int i = 0;
-            double totalSum = 0.00f;
-            double[] number = new double[count];
-
-            do
-            {
-                Console.Write("Enter Integer: ");
-                number[i] = Convert.ToDouble(Console.ReadLine());
-                totalSum += number[i];
-                count--;
-            } while (count != 0);
-            average = totalSum / countSum;
-
-            return average;
-        }
-        static void DisplayIntArray(int[] arrayIntList)
-        {
-            Console.Clear();
-            for (int i = 0; i < arrayIntList.Length; i++)
-                Console.Write($"{arrayIntList[i]} ");
-        }
-
-        static void DisplayStringArray(string[] arrayStringList)
-        {
-            Console.Clear();
-            for (int i = 0; i < arrayStringList.Length; i++)
-                Console.Write($"{arrayStringList[i]} ");
-
-        }
-
-        static int[] CreateIntArray()
-        {
-            Console.Clear();
-            int arrayLength;
-
-            Console.Write("Enter length of array: ");
-            arrayLength = Convert.ToInt32(Console.ReadLine());
-            int[] newIntArray = new int[arrayLength];
-            for (int i = 0; i < arrayLength; i++)
-            {
-                Console.Write($"Enter value of array {i + 1}: ");
-                newIntArray[i] = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("No students found.\nPress any key to continue...");
             }
+            else
+            {
+                foreach (var student in students)
+                {
+                    Console.WriteLine(student);
+                }
+                Console.WriteLine("Press any key to continue...");
+            }
+            Console.ReadKey();
+        }
+        static void SearchStudent()
+        {
+            Console.Clear();
+            Console.WriteLine("+++ Search Student: +++\n");
 
-            return newIntArray;
+            Console.Write("Enter Student ID: ");
+            int studentID = Convert.ToInt32(Console.ReadLine());
+
+            Student studentFound = students.Find(student => student.StudentID == studentID);
+
+            if (studentFound == null)
+            {
+                Console.WriteLine("Student not found.\nPress any key to continue...");
+            }
+            else
+            {
+                Console.WriteLine($"Student Found: {studentFound}\nPress any key to continue...");
+            }
+            Console.ReadKey();
+        }
+
+        static void DeleteStudent()
+        {
+            Console.Clear();
+            Console.WriteLine("+++ Delete Student: +++\n");
+
+            Console.Write("Enter Student ID: ");
+            int studentID = Convert.ToInt32(Console.ReadLine());
+
+            Student studentFound = students.Find(student => student.StudentID == studentID);
+
+            if (studentFound == null)
+            {
+                Console.WriteLine("Student not found.\nPress any key to continue...");
+            }
+            else
+            {
+                students.Remove(studentFound);
+                Console.WriteLine($"Student Deleted: {studentFound}\nPress any key to continue...");
+            }
+            Console.ReadKey();
+        }
+
+        static void DisplaySummary()
+        {
+            Console.Clear();
+            Console.WriteLine("+++ Summary of Students: +++\n");
+
+            Console.WriteLine($"Total number of students: {students.Count}");
+            Console.WriteLine($"Average GPA: {students.Average(student => student.GPA):F2}");
+            Console.WriteLine($"Highest GPA: {students.Max(student => student.GPA):F2}");
+            Console.WriteLine($"Lowest GPA: {students.Min(student => student.GPA):F2}");
+
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
         }
 
     }
