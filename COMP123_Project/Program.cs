@@ -75,7 +75,7 @@ namespace Group3_Project
             Student newStudent = new Student(studentName, studentID, studentGPA);
             student.Add(newStudent);
 
-            Console.WriteLine($"Student Added: {newStudent}\nPress any key to continue...");
+            Console.WriteLine($"\nStudent Added: {newStudent}\nPress any key to continue...");
             Console.ReadKey();
         }
         static void DisplayAllStudents()
@@ -104,15 +104,23 @@ namespace Group3_Project
             Console.Write("Enter Student ID: ");
             int studentID = Convert.ToInt32(Console.ReadLine());
 
-            Student studentFound = student.Find(student => student.StudentID == studentID);
+            Student studentFound = null;
+            foreach (var student in student)
+            {
+                if (student.StudentID == studentID)
+                {
+                    studentFound = student;
+                    break;
+                }
+            }
 
             if (studentFound == null)
             {
-                Console.WriteLine("Student not found.\nPress any key to continue...");
+                Console.WriteLine("\nStudent not found.\nPress any key to continue...");
             }
             else
             {
-                Console.WriteLine($"Student Found: {studentFound}\nPress any key to continue...");
+                Console.WriteLine($"\nStudent Found: {studentFound}\nPress any key to continue...");
             }
             Console.ReadKey();
         }
@@ -125,7 +133,15 @@ namespace Group3_Project
             Console.Write("Enter Student ID: ");
             int studentID = Convert.ToInt32(Console.ReadLine());
 
-            Student studentFound = student.Find(student => student.StudentID == studentID);
+            Student studentFound = null;
+            foreach (var student in student)
+            {
+                if (student.StudentID == studentID)
+                {
+                    studentFound = student;
+                    break;
+                }
+            }
 
             if (studentFound == null)
             {
@@ -134,7 +150,7 @@ namespace Group3_Project
             else
             {
                 student.Remove(studentFound);
-                Console.WriteLine($"Student Deleted: {studentFound}\nPress any key to continue...");
+                Console.WriteLine($"\nStudent Deleted: {studentFound}\nPress any key to continue...");
             }
             Console.ReadKey();
         }
