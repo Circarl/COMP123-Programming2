@@ -7,7 +7,7 @@ namespace Group3_Project
 {
     class Program
     {
-        static List<Student> students = new List<Student>();
+        static List<Student> student = new List<Student>();
         static void Main(string[] args)
         {
             string choice;
@@ -73,7 +73,7 @@ namespace Group3_Project
             double studentGPA = Convert.ToDouble(Console.ReadLine());
 
             Student newStudent = new Student(studentName, studentID, studentGPA);
-            students.Add(newStudent);
+            student.Add(newStudent);
 
             Console.WriteLine($"Student Added: {newStudent}\nPress any key to continue...");
             Console.ReadKey();
@@ -82,15 +82,15 @@ namespace Group3_Project
         {
             Console.WriteLine("+++ All Students: +++\n");
 
-            if (students.Count == 0)
+            if (student.Count == 0)
             {
                 Console.WriteLine("No students found.\nPress any key to continue...");
             }
             else
             {
-                foreach (var student in students)
+                foreach (var stud in student)
                 {
-                    Console.WriteLine(student);
+                    Console.WriteLine(stud);
                 }
                 Console.WriteLine("Press any key to continue...");
             }
@@ -104,7 +104,7 @@ namespace Group3_Project
             Console.Write("Enter Student ID: ");
             int studentID = Convert.ToInt32(Console.ReadLine());
 
-            Student studentFound = students.Find(student => student.StudentID == studentID);
+            Student studentFound = student.Find(student => student.StudentID == studentID);
 
             if (studentFound == null)
             {
@@ -125,7 +125,7 @@ namespace Group3_Project
             Console.Write("Enter Student ID: ");
             int studentID = Convert.ToInt32(Console.ReadLine());
 
-            Student studentFound = students.Find(student => student.StudentID == studentID);
+            Student studentFound = student.Find(student => student.StudentID == studentID);
 
             if (studentFound == null)
             {
@@ -133,7 +133,7 @@ namespace Group3_Project
             }
             else
             {
-                students.Remove(studentFound);
+                student.Remove(studentFound);
                 Console.WriteLine($"Student Deleted: {studentFound}\nPress any key to continue...");
             }
             Console.ReadKey();
@@ -144,10 +144,10 @@ namespace Group3_Project
             Console.Clear();
             Console.WriteLine("+++ Summary of Students: +++\n");
 
-            Console.WriteLine($"Total number of students: {students.Count}");
-            Console.WriteLine($"Average GPA: {students.Average(student => student.GPA):F2}");
-            Console.WriteLine($"Highest GPA: {students.Max(student => student.GPA):F2}");
-            Console.WriteLine($"Lowest GPA: {students.Min(student => student.GPA):F2}");
+            Console.WriteLine($"Total number of students: {student.Count}");
+            Console.WriteLine($"Average GPA: {student.Average(student => student.GPA):F2}");
+            Console.WriteLine($"Highest GPA: {student.Max(student => student.GPA):F2}");
+            Console.WriteLine($"Lowest GPA: {student.Min(student => student.GPA):F2}");
 
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
