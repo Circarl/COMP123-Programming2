@@ -17,7 +17,7 @@
 
         public override string ToString()
         {
-            return $"{StudentName,-10} ID#{StudentID,-10} GPA:{GPA,-10:F2}";
+            return $"{StudentName,-10} ID# {StudentID,-10} GPA:{GPA,-10:F2}";
         }
     }
 }
