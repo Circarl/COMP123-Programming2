@@ -105,11 +105,11 @@ namespace Group3_Project
             int studentID = Convert.ToInt32(Console.ReadLine());
 
             Student studentFound = null;
-            foreach (var student in student)
+            foreach (var id in student)
             {
-                if (student.StudentID == studentID)
+                if (id.StudentID == studentID)
                 {
-                    studentFound = student;
+                    studentFound = id;
                     break;
                 }
             }
@@ -134,11 +134,11 @@ namespace Group3_Project
             int studentID = Convert.ToInt32(Console.ReadLine());
 
             Student studentFound = null;
-            foreach (var student in student)
+            foreach (var id in student)
             {
-                if (student.StudentID == studentID)
+                if (id.StudentID == studentID)
                 {
-                    studentFound = student;
+                    studentFound = id;
                     break;
                 }
             }
