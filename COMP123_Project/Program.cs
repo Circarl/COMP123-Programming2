@@ -2,16 +2,25 @@
 using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using System.Transactions;
+using Newtonsoft.Json;
 
 namespace Group3_Project
 {
     class Program
     {
         static List<Student> student = new List<Student>();
+        static string filePath = "students.json";
         static void Main(string[] args)
         {
             string choice;
+            
 
+            //retrieving stored data from the file
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                student = JsonConvert.DeserializeObject<List<Student>>(json);
+            }
             do
             {
                 Console.Clear();
@@ -77,6 +86,12 @@ namespace Group3_Project
 
             Console.WriteLine($"\nStudent Added: {newStudent}\nPress any key to continue...");
             Console.ReadKey();
+
+            // Serialize the list of students to JSON format
+            string json = JsonConvert.SerializeObject(student);
+
+            // Write the JSON data to the file
+            File.WriteAllText(filePath, json);
         }
         static void DisplayAllStudents()
         {
@@ -152,6 +167,11 @@ namespace Group3_Project
                 student.Remove(studentFound);
                 Console.WriteLine($"\nStudent Deleted: {studentFound}\nPress any key to continue...");
             }
+            // Serialize the list of students to JSON format
+            string json = JsonConvert.SerializeObject(student);
+
+            // Write the JSON data to the file
+            File.WriteAllText(filePath, json);
             Console.ReadKey();
         }
 
@@ -166,6 +186,13 @@ namespace Group3_Project
             Console.WriteLine($"Lowest GPA: {student.Min(student => student.GPA):F2}");
 
             Console.WriteLine("\nPress any key to continue...");
+
+            // Serialize the list of students to JSON format
+            string json = JsonConvert.SerializeObject(student);
+
+            // Write the JSON data to the file
+            File.WriteAllText(filePath, json);
+            Console.ReadKey();
             Console.ReadKey();
         }
 
