@@ -117,7 +117,7 @@ namespace Group3_Project
             Console.Clear();
             Console.WriteLine("+++ Search Student: +++\n");
 
-            Console.WriteLine("Search by 1.) ID or 2.) Name (Please enter 1 or 2): ");
+            Console.Write("Search by\n1.) ID\n2.) Name\nEnter Option (Please enter 1 or 2): ");
             int searchOption = Convert.ToInt32(Console.ReadLine());
 
                 //created switch case for searching student with ID or Name
@@ -151,6 +151,7 @@ namespace Group3_Project
                         Console.Write("Enter Student Name: ");
                         string studentName = Console.ReadLine();
 
+                        studentName.ToLower();
                         Student studentNameFound = null;
                         foreach (var id in student)
                         {
