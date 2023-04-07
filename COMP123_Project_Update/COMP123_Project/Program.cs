@@ -150,12 +150,12 @@ namespace Group3_Project
                     case 2:
                         Console.Write("Enter Student Name: ");
                         string studentName = Console.ReadLine();
-
                         studentName.ToLower();
+
                         Student studentNameFound = null;
                         foreach (var id in student)
                         {
-                            if (id.StudentName == studentName)
+                            if (id.StudentName.ToLower() == studentName.ToLower())
                             {
                                 studentNameFound = id;
                                 break;
