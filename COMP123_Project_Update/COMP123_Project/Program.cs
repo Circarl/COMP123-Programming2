@@ -227,7 +227,6 @@ namespace Group3_Project
             // Write the JSON data to the file
             File.WriteAllText(filePath, json);
             Console.ReadKey();
-            Console.ReadKey();
         }
 
     }
