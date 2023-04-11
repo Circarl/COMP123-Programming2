@@ -51,7 +51,8 @@ namespace Group3_Project
                         Console.ReadKey();
                         break;
                     default:
-                        Console.WriteLine("\nInvalid input.\nEnter from 1 - 5, 6 for exit.");
+                        Console.WriteLine("\nInvalid input.\nAny Key to continue. ");
+                        Console.ReadKey();
                         break;
                 }
             } while (choice != "6");
@@ -121,6 +122,7 @@ namespace Group3_Project
             int searchOption = Convert.ToInt32(Console.ReadLine());
 
                 //created switch case for searching student with ID or Name
+
                 switch (searchOption)
                 {
                     case 1:
@@ -172,7 +174,16 @@ namespace Group3_Project
                         }
                         Console.ReadKey();
                         break;
-                }
+                    case 3:
+                        Console.WriteLine("\nThank you!\nPress any key to exit...");
+                        Console.ReadKey();
+                        break;
+                    default:
+                        Console.WriteLine("\nInvalid input.\nPlease enter a valid option.\n1.) Search by ID \n2.) Search by name \n3.) Exit.");
+                        Console.WriteLine("\nPress any key to return to menu options...");
+                        Console.ReadKey();
+                        break;
+            }
         }
         static void DeleteStudent()
         {

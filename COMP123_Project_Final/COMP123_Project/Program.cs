@@ -209,7 +209,7 @@ namespace Group3_Project
 
             if (studentFound == null)
             {
-                Console.WriteLine("Student not found.\nPress any key to continue...");
+                Console.WriteLine("Invalid ID, or Student not found.\nPress any key to continue...");
             }
             else
             {
