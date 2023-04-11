@@ -9,7 +9,7 @@ namespace Group3_Project
     class Program
     {
         static List<Student> student = new List<Student>();
-        static string filePath = "students.json";
+        static string filePath = "students.txt";
         static void Main(string[] args)
         {
             string choice;
@@ -48,6 +48,7 @@ namespace Group3_Project
                         break;
                     case "6":
                         Console.WriteLine("\nThank you! Have a nice day!\nPress any key to exit...");
+                        SaveStudentsToFile();
                         Console.ReadKey();
                         break;
                     default:
@@ -74,7 +75,7 @@ namespace Group3_Project
             Console.Clear();
             Console.WriteLine("+++ Add Student: +++\n");
 
-            Console.Write("Enter Student Name: ");
+            Console.Write("Enter New Student Name: ");
             string studentName = Console.ReadLine();
 
             Console.Write("Enter Student ID: ");
@@ -109,23 +110,26 @@ namespace Group3_Project
                 {
                     Console.WriteLine(stud);
                 }
-                Console.WriteLine("Press any key to continue...");
+                Console.WriteLine("\nPress any key to go back to Main Menu...");
             }
             Console.ReadKey();
         }
         static void SearchStudent()
         {
+            Start:
             Console.Clear();
             Console.WriteLine("+++ Search Student: +++\n");
 
-            Console.Write("Search by\n1.) ID\n2.) Name\nEnter Option (Please enter 1 or 2): ");
-            int searchOption = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Search by\n1.) ID\n2.) Name\n3.) Back to Main\n\nEnter Option Number: ");
+            string searchOption = Console.ReadLine();
 
-                //created switch case for searching student with ID or Name
+            //created switch case for searching student with ID or Name
+            do
+            {
 
                 switch (searchOption)
                 {
-                    case 1:
+                    case "1":
                         Console.Write("Enter Student ID: ");
                         int studentID = Convert.ToInt32(Console.ReadLine());
 
@@ -141,15 +145,18 @@ namespace Group3_Project
 
                         if (studentFound == null)
                         {
-                            Console.WriteLine("\nStudent not found.\nPress any key to continue...");
+                            Console.Write("\nStudent not found. \nReturn to Search Options, Press any key.");
+                            Console.ReadKey();
+                            goto Start;
                         }
                         else
                         {
                             Console.WriteLine($"\nStudent Found: {studentFound}\nPress any key to continue...");
+                            searchOption = "3";
                         }
                         Console.ReadKey();
                         break;
-                    case 2:
+                    case "2":
                         Console.Write("Enter Student Name: ");
                         string studentName = Console.ReadLine();
                         studentName.ToLower();
@@ -166,24 +173,28 @@ namespace Group3_Project
 
                         if (studentNameFound == null)
                         {
-                            Console.WriteLine("\nStudent not found.\nPress any key to continue...");
+                            Console.Write("\nStudent not found.\nPress any key to continue...");
+                            Console.ReadKey();
+                            goto Start;
                         }
                         else
                         {
                             Console.WriteLine($"\nStudent Found: {studentNameFound}\nPress any key to continue...");
+                            searchOption = "3";
                         }
                         Console.ReadKey();
                         break;
-                    case 3:
-                        Console.WriteLine("\nThank you!\nPress any key to exit...");
+                    case "3":
+                        Console.WriteLine("\nAny key to go back...");
                         Console.ReadKey();
                         break;
                     default:
-                        Console.WriteLine("\nInvalid input.\nPlease enter a valid option.\n1.) Search by ID \n2.) Search by name \n3.) Exit.");
-                        Console.WriteLine("\nPress any key to return to menu options...");
+                        Console.WriteLine("\nInvalid input.\nPlease enter a valid number.\n1.) Search by ID \n2.) Search by name \n3.) Exit.");
+                        Console.WriteLine("\nEnter any key to return to Search options...");
                         Console.ReadKey();
-                        break;
-            }
+                        goto Start;
+                }
+            } while (searchOption != "3");
         }
         static void DeleteStudent()
         {
@@ -238,6 +249,12 @@ namespace Group3_Project
             // Write the JSON data to the file
             File.WriteAllText(filePath, json);
             Console.ReadKey();
+        }
+        static void SaveStudentsToFile()
+        {
+            string json = JsonConvert.SerializeObject(student);
+            File.WriteAllText(filePath, json);
+            Console.WriteLine($"\nStudent records saved to file: \n{filePath}");
         }
 
     }
